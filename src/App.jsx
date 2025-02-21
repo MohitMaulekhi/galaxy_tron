@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { ShoppingCart, Star, Search, Menu, X, Heart, Package, Rocket, Shield } from 'lucide-react';
+import { Star, X, Heart, Package, Rocket, Shield } from 'lucide-react';
 import FireCursor from './components/FireCursor';
 import Navbar from './components/Navbar';
-
+import Footer from './components/Footer'
+import astronautVideo from '/astronaut.mp4';
+import reviewBg from '/ReviewBg.gif';
 
 function App() {
   const [cartOpen, setCartOpen] = useState(false);
@@ -32,7 +34,7 @@ function App() {
       image: "https://images-cdn.ubuy.co.in/672972ae574ed27c4e68b4bb-outer-space-gift-for-sci-fi-boys.jpg",
       rating: 4.9,
       category: "clothing"
-      
+
     },
     {
       id: 4,
@@ -62,32 +64,35 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-900">
-      
-      <FireCursor/>
+
+      <FireCursor />
       <Navbar />
 
-      <div className="relative pt-16">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80"
-            alt="Space background"
-            className="w-full h-96 object-cover opacity-30"
+      <div className="">
+        <div className="h-[30vh]  inset-0 z-0 flex justify-center bg-black">
+          <video
+            src={astronautVideo}
+            autoPlay
+            loop
+            muted
+            className="w-full lg:w-[50vw] h-[80vh] lg:h-[65vh] object-cover "
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900"></div>
+
         </div>
-        
-        <div className="relative z-10 pt-32 pb-20 text-center">
+
+        <div className=" z-10 pt-32 pb-20 text-center bg-black">
           <h1 className="text-5xl font-bold text-white mb-4">
             Explore Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Space Collection</span>
           </h1>
           <p className="text-gray-300 text-xl max-w-2xl mx-auto">
             Authentic space gear and collectibles for the modern explorer
           </p>
+
         </div>
       </div>
+      <div className="bg-black bg-opacity-50"
 
-      {/* Features */}
-      <div className="bg-black bg-opacity-50 py-12">
+      >
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="flex items-center space-x-4 bg-gray-800 bg-opacity-50 p-6 rounded-lg">
             <Package className="h-8 w-8 text-blue-500" />
@@ -112,26 +117,35 @@ function App() {
           </div>
         </div>
       </div>
+      <div className="max-w-7xl mx-auto px-4 mt-[10vh]" 
 
-      {/* Product Grid */}
-      <div className="max-w-7xl mx-auto px-4 py-16">
+      
+      >
         <div className="flex flex-wrap gap-4 mb-8">
           {['all', 'replicas', 'models', 'clothing', 'accessories', 'art'].map(category => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                selectedCategory === category
-                  ? 'bg-blue-500 text-white'
-                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
-              }`}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${selectedCategory === category
+                ? 'bg-blue-500 text-white'
+                : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                }`}
             >
               {category.charAt(0).toUpperCase() + category.slice(1)}
             </button>
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <div 
+                        style={{
+                          backgroundImage:`url(${reviewBg})`
+                        }}>
+
+          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 bg-cover bg-center mb-[10vh]"
+        >
+
           {products
             .filter(product => selectedCategory === 'all' || product.category === selectedCategory)
             .map(product => (
@@ -140,11 +154,10 @@ function App() {
         </div>
       </div>
 
-      {/* Shopping Cart Sidebar */}
+
       <div
-        className={`fixed inset-y-0 right-0 w-full md:w-96 bg-gray-900 shadow-xl transform transition-transform duration-300 ease-in-out z-50 ${
-          cartOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className={`fixed inset-y-0 right-0 w-full md:w-96 bg-gray-900 shadow-xl transform transition-transform duration-300 ease-in-out z-50 ${cartOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
       >
         <div className="p-6">
           <div className="flex justify-between items-center mb-8">
@@ -156,9 +169,8 @@ function App() {
               <X className="h-6 w-6" />
             </button>
           </div>
-          
+
           <div className="space-y-6">
-            {/* Cart items would go here */}
             <div className="flex items-center space-x-4 bg-gray-800 p-4 rounded-lg">
               <img
                 src={products[0].image}
@@ -177,18 +189,11 @@ function App() {
             </div>
           </div>
 
-          <div className="mt-8 border-t border-gray-800 pt-8">
-            <div className="flex justify-between text-white mb-4">
-              <span>Subtotal</span>
-              <span>$299.99</span>
-            </div>
-            <button className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition-colors">
-              Checkout
-            </button>
-          </div>
         </div>
       </div>
+      <Footer />
     </div>
+
   );
 }
 
@@ -205,23 +210,21 @@ function ProductCard({ product }) {
           <Heart className="h-5 w-5 text-white" />
         </button>
       </div>
-      
-      <div className="p-6">
+      <div className="p-6 opacity-70 hover:opacity-100">
         <div className="flex items-center space-x-1 mb-2">
           {[...Array(5)].map((_, i) => (
             <Star
               key={i}
-              className={`h-4 w-4 ${
-                i < Math.floor(product.rating)
-                  ? 'text-yellow-400'
-                  : 'text-gray-600'
-              }`}
+              className={`h-4 w-4 ${i < Math.floor(product.rating)
+                ? 'text-yellow-400'
+                : 'text-gray-600'
+                }`}
               fill={i < Math.floor(product.rating) ? 'currentColor' : 'none'}
             />
           ))}
           <span className="text-gray-400 text-sm ml-2">{product.rating}</span>
         </div>
-        
+
         <h3 className="text-lg font-semibold text-white mb-2">{product.name}</h3>
         <div className="flex justify-between items-center">
           <span className="text-2xl font-bold text-white">${product.price}</span>
@@ -230,7 +233,9 @@ function ProductCard({ product }) {
           </button>
         </div>
       </div>
+
     </div>
+
   );
 }
 
