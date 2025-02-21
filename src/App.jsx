@@ -16,7 +16,7 @@ function App() {
       id: 1,
       name: "Space Mug",
       price: 299,
-      image: "./public/products/1.jpg",
+      image: "/products/1.jpg",
       rating: 4.8,
       category: "replicas"
     },
@@ -41,7 +41,7 @@ function App() {
       id: 4,
       name: "Nebula Watch",
       price: 4399,
-      image: "./public/products/watch.jpg",
+      image: "/products/watch.jpg",
       rating: 4.7,
       category: "accessories"
     },
@@ -49,7 +49,7 @@ function App() {
       id: 5,
       name: "Mini Astronaut",
       price: 899,
-      image: "./public/products/3.jpg",
+      image: "/products/3.jpg",
       rating: 4.6,
       category: "accessories"
     },
@@ -65,7 +65,7 @@ function App() {
 
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black ">
 
       <FireCursor />
       <Navbar />

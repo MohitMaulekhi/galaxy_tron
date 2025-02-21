@@ -29,3 +29,40 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #2563eb;
 }
+
+.starburst {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 400px; 
+  height: 400px; 
+  background: conic-gradient(
+    rgba(0, 127, 255, 0.9) 0deg,
+    rgba(0, 191, 255, 0.6) 90deg,
+    rgba(0, 127, 255, 0.3) 180deg,
+    rgba(0, 191, 255, 0.6) 270deg,
+    rgba(0, 127, 255, 0.9) 360deg
+  );
+  animation: rotate-rays 3s linear infinite;
+  transform: translate(-50%, -50%);
+  filter: blur(60px); 
+  opacity: 1; 
+  z-index: 0; 
+}
+
+@keyframes rotate-rays {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+@keyframes rotate {
+  from { 
+    transform: translate(-50%, -50%) rotate(0deg); 
+  }
+  to { 
+    transform: translate(-50%, -50%) rotate(360deg); 
+  }
+}
