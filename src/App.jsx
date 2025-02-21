@@ -96,7 +96,7 @@ function App() {
 
       >
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="flex items-center space-x-4 bg-black bg-opacity-50 p-6 rounded-lg">
+          <div className="flex items-center space-x-4 bg-gray-800 bg-opacity-50 p-6 rounded-lg">
             <Package className="h-8 w-8 text-blue-500" />
             <div>
               <h3 className="text-white font-semibold">Free Shipping</h3>
