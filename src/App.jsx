@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer'
 import astronautVideo from '/astronaut.mp4';
 import reviewBg from '/ReviewBg.gif';
+import CustomerReview from './pages/CustomerReview';
 
 function App() {
   const [cartOpen, setCartOpen] = useState(false);
@@ -13,16 +14,16 @@ function App() {
   const products = [
     {
       id: 1,
-      name: "Astronaut Helmet Replica",
-      price: 299.99,
-      image: "https://images.unsplash.com/photo-1532198528077-0d9e4ca9bb40?auto=format&fit=crop&q=80",
+      name: "Space Mug",
+      price: 299,
+      image: "./public/products/1.jpg",
       rating: 4.8,
       category: "replicas"
     },
     {
       id: 2,
       name: "Mars Colony Model Kit",
-      price: 149.99,
+      price: 1499,
       image: "https://www.whizzpopbang.com/blog/wp-content/uploads/2021/02/Mars-colony-1030x1030.jpg",
       rating: 4.5,
       category: "models"
@@ -30,25 +31,25 @@ function App() {
     {
       id: 3,
       name: "Space T-Shirt",
-      price: 199.99,
+      price: 799,
       image: "https://images-cdn.ubuy.co.in/672972ae574ed27c4e68b4bb-outer-space-gift-for-sci-fi-boys.jpg",
       rating: 4.9,
       category: "clothing"
-
+      
     },
     {
       id: 4,
       name: "Nebula Watch",
-      price: 399.99,
-      image: "https://images.unsplash.com/photo-1619134778706-7015533a6150?auto=format&fit=crop&q=80",
+      price: 4399,
+      image: "./public/products/watch.jpg",
       rating: 4.7,
       category: "accessories"
     },
     {
       id: 5,
-      name: "Galaxy Backpack",
-      price: 89.99,
-      image: "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?auto=format&fit=crop&q=80",
+      name: "Mini Astronaut",
+      price: 899,
+      image: "./public/products/3.jpg",
       rating: 4.6,
       category: "accessories"
     },
@@ -62,8 +63,9 @@ function App() {
     }
   ];
 
+
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen bg-black">
 
       <FireCursor />
       <Navbar />
@@ -94,7 +96,7 @@ function App() {
 
       >
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="flex items-center space-x-4 bg-gray-800 bg-opacity-50 p-6 rounded-lg">
+          <div className="flex items-center space-x-4 bg-black bg-opacity-50 p-6 rounded-lg">
             <Package className="h-8 w-8 text-blue-500" />
             <div>
               <h3 className="text-white font-semibold">Free Shipping</h3>
@@ -118,8 +120,6 @@ function App() {
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-4 mt-[10vh]" 
-
-      
       >
         <div className="flex flex-wrap gap-4 mb-8">
           {['all', 'replicas', 'models', 'clothing', 'accessories', 'art'].map(category => (
@@ -191,6 +191,7 @@ function App() {
 
         </div>
       </div>
+      <CustomerReview/>
       <Footer />
     </div>
 
