@@ -64,38 +64,7 @@ function App() {
     <div className="min-h-screen bg-gray-900">
       
       <FireCursor/>
-      <Navbar className='sticky' />
-      {/* <nav className="bg-black bg-opacity-50 backdrop-blur-lg fixed w-full z-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <Rocket className="h-8 w-8 text-blue-500" />
-              <span className="ml-2 text-xl font-bold text-white">COSMIC GEAR</span>
-            </div>
-            
-            <div className="hidden md:flex items-center space-x-8">
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Search products..."
-                  className="bg-gray-800 text-white px-4 py-2 rounded-full pl-10 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-                <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
-              </div>
-              
-              <button
-                onClick={() => setCartOpen(true)}
-                className="relative text-white hover:text-blue-500 transition-colors"
-              >
-                <ShoppingCart className="h-6 w-6" />
-                <span className="absolute -top-2 -right-2 bg-blue-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                  3
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav> */}
+      <Navbar />
 
       <div className="relative pt-16">
         <div className="absolute inset-0 z-0">
